@@ -1,11 +1,13 @@
 /app/bootstrap.php.cache
-/app/cache/*
-!app/cache/.gitkeep
 /app/config/parameters.yml
-/app/logs/*
-!app/logs/.gitkeep
 /app/phpunit.xml
 /bin/
 /composer.phar
+/var/cache/*
+!var/cache/.gitkeep
+/var/log/*
+!var/log/.gitkeep
+/var/tmp/*
+!var/tmp/.gitkeep
 /vendor/
 /web/bundles/

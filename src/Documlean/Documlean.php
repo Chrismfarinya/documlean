@@ -1,9 +1,9 @@
 <?php
 
-namespace AppBundle;
+namespace Documlean;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AppBundle extends Bundle
+class Documlean extends Bundle
 {
 }

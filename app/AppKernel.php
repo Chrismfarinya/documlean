@@ -16,7 +16,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new AppBundle\AppBundle(),
+            new Documlean\Documlean(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -32,5 +32,15 @@ class AppKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
+    }
+
+    public function getCacheDir()
+    {
+        return $this->rootDir.'/../var/cache/' . $this->getEnvironment();
+    }
+
+    public function getLogDir()
+    {
+        return $this->rootDir.'/../var/log/' . $this->getEnvironment();
     }
 }
