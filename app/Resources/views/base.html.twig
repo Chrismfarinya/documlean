@@ -2,12 +2,173 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Documlean {% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <link rel="stylesheet"    href="{{ asset("bootstrap.css", "built_css") }}" type="text/css" />
+        {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+
+        <link rel="stylesheet"    href="{{ asset("layout.css",  "documlean_css")  }}" type="text/css" />
+        <link rel="stylesheet"    href="{{ asset("style.css",   "documlean_css")  }}" type="text/css" />
+
+        <link rel="icon"          href="{{ asset("favicon.ico", "documlean_img") }}" type="image/x-icon" />
+        <link rel="icon"          href="{{ asset("favicon.ico", "documlean_img") }}" type="image/vnd.microsoft.icon" />
+        <link rel="shortcut icon" href="{{ asset("favicon.ico", "documlean_img") }}" />
+
     </head>
     <body>
+
+
+
+        <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
+        <script src="{{ asset("jquery.js",    "built_js") }}"></script>
+        <!-- Include all JavaScripts, compiled by Assetic -->
+        <script src="{{ asset("bootstrap.js", "built_js") }}"></script>
+
+
+
+        <div class="container">
+
+
+
+<header>
+<!-- navbar-fixed-top causes navigation to expand to full width -->
+
+
+<a class="" href="{{ path('homepage') }}">
+    <h1>Documlean</h1>
+</a>
+
+<div class="navbar navbar-inverse" role="navigation">
+
+    <!-- this CSS snippet forces it to not overexpand -->
+    <style type="text/css" scoped>
+        @media (min-width: 1200px) {
+            .container{
+                max-width: 970px;
+            }
+    }
+    </style>
+    <div class="container">
+
+
+
+
+
+        <div class="navbar-header">
+            <!-- ================================ -->
+            <!-- Ensure collapsible menu for mobile devices -->
+            <!-- ================================ -->
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+
+        </div>   <!-- // navbar-header -->
+
+
+
+        <!-- ================================ -->
+        <!-- The actual navigation -->
+        <!-- ================================ -->
+        <nav class="collapse navbar-collapse">
+
+
+            <!-- Make hover work the way it should - only support hover on non-mobile devices -->
+<!--
+            <style type='text/css' scoped>
+                @media (min-width: 768px) {
+                    ul.nav li.dropdown:hover ul.dropdown-menu {
+                        display: block;
+                    }
+                }
+            </style>
+-->
+
+
+            <!-- ================================ -->
+            <!-- Display the menu                 -->
+            <!-- ================================ -->
+
+
+
+<!-- div/nav navbar-collapse is defined in parent template -->
+
+
+
+    <ul class="nav navbar-nav">
+<!--
+        <li><a href="/organization/register/ ">Ustvari novo organizacijo</a></li>
+-->
+
+
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
+                href="/document/list/latest">
+                Documents
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="/document/list/pending-review"><b>Za pregled</b></a></li>
+                <li class="divider"></li>
+                <li><a href="/season/ "><b>Sezone</b></a></li>
+                <li class="divider"></li>
+                <li><a href="/client/list-all/?active=1"><b>Člani</b></a></li>
+                <li><a href="/client/list-all/?active=1">&raquo; Aktivni v tej sezoni</a></li>
+                <li><a href="/client/list-all/ ">&raquo; Vsi</a></li>
+                <li><a href="/client/search/ ">&raquo; Iskanje</a></li>
+
+                <li class="divider"></li>
+                <li><a href="/client/export-active-emails/ "><b>Admin komunikacija</b></a></li>
+                <li><a href="/client/export-active-emails/ ">&raquo; Izvozi email naslove vseh aktivnih članov</a></li>
+            </ul>
+        </li>
+
+
+        <li>
+            <a class="" href="{{ path('document-upload') }}">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Upload new document
+            </a>
+        </li>
+    </ul>
+
+
+
+
+            <!-- ================================ -->
+            <!-- Ensure that hoover works         -->
+            <!-- ================================ -->
+            <script type="text/javascript">
+                $('.navbar .dropdown').hover(
+                    function() {
+                        $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
+                    },
+                    function() {
+                        $(this).find('.dropdown-menu').first().stop(true, true).slideUp(105)
+                    }
+                );
+            </script>
+
+        </nav> <!-- collapse navbar-collapse -->
+
+    </div>   <!-- container -->
+</div>   <!-- navbar -->
+
+</header>
+
+
+
+
+    <div class="container">
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+    </div>   <!-- container -->
+
     </body>
 </html>

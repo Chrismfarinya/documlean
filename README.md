@@ -1,4 +1,4 @@
-Documlean
+Documlean - PRE-ALPHA stage
 =========
 
-An electonic document management system/software with OCR, tagging, search and API support.
+DMS - Document management system/software with OCR, tagging, search and API support.

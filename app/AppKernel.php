@@ -1,13 +1,13 @@
 <?php
 
-use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\Config\Loader\LoaderInterface;
+use Teon\Symfony\HttpKernel\BaseKernel;
 
-class AppKernel extends Kernel
+class AppKernel extends BaseKernel
 {
     public function registerBundles()
     {
         $bundles = array(
+            // Base framework
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -16,6 +16,21 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+
+            // Application basis
+            new Teon\Symfony\Symfony(),
+
+            // Database addons
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new Avanzu\Doctrine\PrefixBundle\AvanzuDoctrinePrefixBundle(),
+
+            // Backend libs
+            new FPN\TagBundle\FPNTagBundle(),
+
+            // Frontend libs
+            new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+
+            // Main application
             new Documlean\Documlean(),
         );
 
@@ -27,20 +42,5 @@ class AppKernel extends Kernel
         }
 
         return $bundles;
-    }
-
-    public function registerContainerConfiguration(LoaderInterface $loader)
-    {
-        $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
-    }
-
-    public function getCacheDir()
-    {
-        return $this->rootDir.'/../var/cache/' . $this->getEnvironment();
-    }
-
-    public function getLogDir()
-    {
-        return $this->rootDir.'/../var/log/' . $this->getEnvironment();
     }
 }

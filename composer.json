@@ -4,10 +4,10 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "": "src/",
-            "SymfonyStandard\\": "app/SymfonyStandard/"
+            "Documlean\\": "app/src/Documlean/"
         }
     },
+
     "require": {
         "php": ">=5.3.9",
         "symfony/symfony": "2.7.*",
@@ -19,7 +19,15 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "doctrine/migrations": "~1.1",
+        "doctrine/doctrine-migrations-bundle": "~1.1",
+        "avanzu/sf-doctrine-prefix-bundle": "dev-master",
+        "fpn/tag-bundle": "0.9.*",
+        "braincrafted/bootstrap-bundle": "dev-master",
+        "twbs/bootstrap":      "~3.3",
+        "components/jquery":   "~2.1",
+        "teon/symfony": "~0.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
@@ -35,7 +43,9 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+            "Teon\\Symfony\\Composer\\ScriptHandler\\CacheChmod777::cacheChmod777",
+            "Teon\\Symfony\\Composer\\ScriptHandler\\LogChmod777::logChmod777"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -44,7 +54,9 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+            "Teon\\Symfony\\Composer\\ScriptHandler\\CacheChmod777::cacheChmod777",
+            "Teon\\Symfony\\Composer\\ScriptHandler\\LogChmod777::logChmod777"
         ]
     },
     "config": {
@@ -52,10 +64,10 @@
     },
     "extra": {
         "symfony-app-dir": "app",
-        "symfony-web-dir": "web",
+        "symfony-web-dir": "web/assets/generated",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "conf/parameters.yml"
         }
     }
 }

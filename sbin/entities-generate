@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+
+### Bootstrap
+#
+MYDIR_ABS=$(dirname `readlink -f "${BASH_SOURCE[0]}"`)
+source $MYDIR_ABS/../vendor-dev/teon-symfony/sbin/console-bootstrap.inc
+
+
+
+### Run
+#
+$CONSOLE_ABS doctrine:generate:entities Documlean/Entity/$@

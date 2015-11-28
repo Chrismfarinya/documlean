@@ -1,13 +1,27 @@
-/app/bootstrap.php.cache
-/app/config/parameters.yml
-/app/phpunit.xml
-/bin/
-/composer.phar
+### Ignore local configuration
+#
+/conf/*
+!/conf/*.dist
+/dev-auth.php
+
+
+### Ignore all temporary files
+#
 /var/cache/*
 !var/cache/.gitkeep
-/var/log/*
-!var/log/.gitkeep
+/var/logs/*
+!var/logs/.gitkeep
 /var/tmp/*
 !var/tmp/.gitkeep
+
+
+### Ignore composer-installed stuff
+#
 /vendor/
-/web/bundles/
+/vendor-tmp/
+#/vendor-dev/  <--- DO NOT IGNORE THIS ONE! Must see if local composer package overrides are present.
+/web/assets/generated/
+/node_modules/
+
+#/app/bootstrap.php.cache
+#/app/phpunit.xml

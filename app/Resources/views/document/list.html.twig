@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Documents:</h1>
+    <ul>
+        {% for Document in documents %}
+            <li>{{ Document.id }}. {{ Document.title }}. </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

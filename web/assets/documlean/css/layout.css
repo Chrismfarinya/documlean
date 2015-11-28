@@ -1,0 +1,62 @@
+/******************************************************************************
+ *
+ * General page layout formatting directives
+ *
+ ******************************************************************************/
+
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #dddddd;
+}
+
+.navbar-nav > li > a {
+    padding-top:    10px !important;
+    padding-bottom: 10px !important;
+    background-color: #663333;
+    color: #ffffff;
+}
+.navbar {
+    min-height:40px !important;
+    background-color: #633;
+}
+
+/*
+html, body {
+  height: 100%;
+}
+
+body {
+    margin:0px 0px 0px 0px;
+    border:0px solid #000000;
+    padding:0px 0px 0px 0px;
+
+    font-family:tahoma, verdana, sans-serif;
+    font-size:medium;
+    font-style:normal;
+    font-weight:normal;
+    line-height:normal;
+}
+*/
+
+/*
+div#layout_container_browserwindow {
+    margin:     0px 0px 0px 0px;
+    padding:    0px 0px 0px 0px;
+    border:     0px solid #FF0000;
+}
+*/
+
+/*
+ul#navbar {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+li.navbar {
+    display:inline;
+}
+a.navbar {
+    display:block;
+    width:150px;
+}
+*/
